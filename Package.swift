@@ -4,20 +4,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "RichText",
+    name: "RichUnicodeText",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "RichText",
-            targets: ["RichText"]),
+            name: "RichUnicodeText",
+            targets: ["RichUnicodeText"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "RichText"),
+            name: "RichUnicodeText"),
         .testTarget(
-            name: "RichTextTests",
-            dependencies: ["RichText"]),
+            name: "RichUnicodeTextTests",
+            dependencies: ["RichUnicodeText"]),
     ]
 )
