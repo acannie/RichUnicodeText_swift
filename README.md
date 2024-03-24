@@ -3,6 +3,8 @@
 ## 概要
 「RichUnicodeText」は、英数字に擬似的にフォントをつけるSwiftのライブラリです。Unicodeでリッチなテキストを表現することができます。
 
+![Sample Image](sample_image.png)
+
 ## 機能
 英数字をリッチなテキストに変換します。
 
