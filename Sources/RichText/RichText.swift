@@ -6,50 +6,44 @@
 //
 
 public extension String {
-    /// 英数字をリッチなテキストに変換
+    /// 文字列をリッチなテキストに変換
     /// - Parameter targetFont: 変換先のフォント
     /// - Returns: リッチなテキスト
     func richText(_ targetFont: RichTextFontEnum) -> String {
         var richText = ""
         for c in self {
-            switch c {
-            case "a"..."z":
-                guard let plainLowerCases = RichTextFontEnum.plain.font.lowerCases,
-                      let targetFontLowerCases = targetFont.font.lowerCases else {
-                    richText += String(c)
-                    continue
-                }
-                if let index = plainLowerCases.firstIndex(of: c) {
-                    let indexInt = plainLowerCases.distance(from: plainLowerCases.startIndex, to: index)
-                    let from = targetFontLowerCases.index(targetFontLowerCases.startIndex, offsetBy: indexInt)
-                    richText += String(targetFontLowerCases[from])
-                }
-            case "A"..."Z":
-                guard let plainUpperCases = RichTextFontEnum.plain.font.upperCases,
-                      let targetFontUpperCases = targetFont.font.upperCases else {
-                    richText += String(c)
-                    continue
-                }
-                if let index = plainUpperCases.firstIndex(of: c) {
-                    let indexInt = plainUpperCases.distance(from: plainUpperCases.startIndex, to: index)
-                    let from = targetFontUpperCases.index(targetFontUpperCases.startIndex, offsetBy: indexInt)
-                    richText += String(targetFontUpperCases[from])
-                }
-            case "0"..."9":
-                guard let plainNumbers = RichTextFontEnum.plain.font.numbers,
-                      let targetFontNumbers = targetFont.font.numbers else {
-                    richText += String(c)
-                    continue
-                }
-                if let index = plainNumbers.firstIndex(of: c) {
-                    let indexInt = plainNumbers.distance(from: plainNumbers.startIndex, to: index)
-                    let from = targetFontNumbers.index(targetFontNumbers.startIndex, offsetBy: indexInt)
-                    richText += String(targetFontNumbers[from])
-                }
-            default:
-                richText += String(c)
-            }
+            richText += String(convertToRichCharacter(c, font: targetFont))
         }
         return richText
+    }
+
+    /// 英数字をリッチな文字に変換
+    /// - Parameters:
+    ///  - c: 変換対象の文字
+    ///  - targetFont: 変換先のフォント
+    /// - Returns: リッチな文字
+    private func convertToRichCharacter(_ c: Character, font targetFont: RichTextFontEnum) -> Character {
+        let plainFontString: String
+        let targetTextString: String
+        switch c {
+        case "a"..."z":
+            plainFontString = RichTextFontEnum.plain.font.lowerCases
+            targetTextString = targetFont.font.lowerCases
+        case "A"..."Z":
+            plainFontString = RichTextFontEnum.plain.font.upperCases
+            targetTextString = targetFont.font.upperCases
+        case "0"..."9":
+            plainFontString = RichTextFontEnum.plain.font.numbers
+            targetTextString = targetFont.font.numbers
+        default:
+            return c
+        }
+
+        guard let index = plainFontString.firstIndex(of: c) else {
+            return c
+        }
+        let indexInt = plainFontString.distance(from: plainFontString.startIndex, to: index)
+        let from = targetTextString.index(targetTextString.startIndex, offsetBy: indexInt)
+        return targetTextString[from]
     }
 }

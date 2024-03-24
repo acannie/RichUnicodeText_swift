@@ -33,12 +33,7 @@ public enum RichTextFontEnum {
     var font: RichTextFont {
         switch self {
         case .plain:
-            return RichTextFont(
-                lowerCases: "abcdefghijklmnopqrstuvwxyz",
-                upperCases: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-                numbers: "1234567890",
-                symbols: "!@#$%^&*()-=_+[]{}|;':\",.<>/?"
-            )
+            return RichTextFont()
         case .mathematicalBold:
             return RichTextFont(
                 lowerCases: "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳",
@@ -157,15 +152,19 @@ public enum RichTextFontEnum {
 /// フォント
 public struct RichTextFont {
     /// 英字小文字
-    let lowerCases: String?
+    let lowerCases: String
     /// 英字大文字
-    let upperCases: String?
+    let upperCases: String
     /// 数字
-    let numbers: String?
+    let numbers: String
     /// 記号
-    let symbols: String?
+    let symbols: String
 
-    init(lowerCases: String? = nil, upperCases: String? = nil, numbers: String? = nil, symbols: String? = nil){
+    init(
+        lowerCases: String = "abcdefghijklmnopqrstuvwxyz",
+        upperCases: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        numbers: String = "1234567890",
+        symbols: String = "!@#$%^&*()-=_+[]{}|;':\",.<>/?"){
         self.lowerCases = lowerCases
         self.upperCases = upperCases
         self.numbers = numbers
