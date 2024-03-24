@@ -6,6 +6,7 @@ Pod::Spec.new do |spec|
     A Swift library for applying pseudo fonts to alphanumeric characters, enabling the representation of rich text using Unicode.
   DESC
   spec.homepage = "https://github.com/acannie/RichUnicodeText_swift"
+  spec.screenshots = "https://raw.githubusercontent.com/acannie/RichUnicodeText_swift/main/sample_image.png"
   spec.license = { :type => "MIT", :file => "LICENSE" }
   spec.author = "acannie"
   spec.platform = :ios, "16.0"
