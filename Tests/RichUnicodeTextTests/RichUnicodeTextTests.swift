@@ -1,7 +1,7 @@
 import XCTest
-@testable import RichText
+@testable import RichUnicodeText
 
-final class richTextTests: XCTestCase {
+final class RichUnicodeTextTests: XCTestCase {
     /// 変換対象の文字列が変換されることを検証
     func test_convertToMathematicalBold() {
         // 準備
