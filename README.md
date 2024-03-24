@@ -1,7 +1,7 @@
-# RichText
+# RichUnicodeText
 
 ## 概要
-「RichText」は、英数字に擬似的にフォントをつけるSwiftのライブラリです。Unicodeでリッチなテキストを表現することができます。
+「RichUnicodeText」は、英数字に擬似的にフォントをつけるSwiftのライブラリです。Unicodeでリッチなテキストを表現することができます。
 
 ## 機能
 英数字をリッチなテキストに変換します。
