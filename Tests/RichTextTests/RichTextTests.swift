@@ -2,6 +2,7 @@ import XCTest
 @testable import RichText
 
 final class richTextTests: XCTestCase {
+    /// 変換対象の文字列が変換されることを検証
     func test_convertToMathematicalBold() {
         // 準備
         let originalString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
@@ -9,6 +10,16 @@ final class richTextTests: XCTestCase {
         // 実行
         let result = originalString.richText(.mathematicalBold)
         // 検証
-        XCTAssertEqual(expectedString, result)
+        XCTAssertEqual(result, expectedString)
+    }
+
+    /// 変換対象外の文字列が変換されないことを検証
+    func test_notConverted() {
+        // 準備
+        let originalString = "あいうえお１２３４５"
+        // 実行
+        let result = originalString.richText(.mathematicalBold)
+        // 検証
+        XCTAssertEqual(result, originalString)
     }
 }
