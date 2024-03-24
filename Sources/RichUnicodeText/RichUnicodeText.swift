@@ -1,5 +1,5 @@
 //
-//  RichFontEnum.swift
+//  RichUnicodeText.swift
 //
 //
 //  Created by acannie on 2024/03/24.
@@ -9,7 +9,7 @@ public extension String {
     /// 文字列をリッチなテキストに変換
     /// - Parameter targetFont: 変換先のフォント
     /// - Returns: リッチなテキスト
-    func richText(_ targetFont: RichUnicodeTextFontEnum) -> String {
+    func richUnicodeText(_ targetFont: RichUnicodeFontEnum) -> String {
         var richText = ""
         for c in self {
             richText += String(convertToRichCharacter(c, font: targetFont))
@@ -22,18 +22,18 @@ public extension String {
     ///  - c: 変換対象の文字
     ///  - targetFont: 変換先のフォント
     /// - Returns: リッチな文字
-    private func convertToRichCharacter(_ c: Character, font targetFont: RichUnicodeTextFontEnum) -> Character {
+    private func convertToRichCharacter(_ c: Character, font targetFont: RichUnicodeFontEnum) -> Character {
         let plainFontString: String
         let targetTextString: String
         switch c {
         case "a"..."z":
-            plainFontString = RichUnicodeTextFontEnum.plain.font.lowerCases
+            plainFontString = RichUnicodeFontEnum.plain.font.lowerCases
             targetTextString = targetFont.font.lowerCases
         case "A"..."Z":
-            plainFontString = RichUnicodeTextFontEnum.plain.font.upperCases
+            plainFontString = RichUnicodeFontEnum.plain.font.upperCases
             targetTextString = targetFont.font.upperCases
         case "0"..."9":
-            plainFontString = RichUnicodeTextFontEnum.plain.font.numbers
+            plainFontString = RichUnicodeFontEnum.plain.font.numbers
             targetTextString = targetFont.font.numbers
         default:
             return c
