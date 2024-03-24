@@ -7,27 +7,49 @@
 
 /// フォントの一覧
 public enum RichTextFontEnum {
+    /// Plain
     case plain
+    /// Mathematical Bold
     case mathematicalBold
+    /// Mathematical Italic
     case mathematicalItalic
+    /// Mathematical Bold Italic
     case mathematicalBoldItalic
+    /// Sans-serif
     case sansserif
+    /// Sans-serif Bold
     case sansserifBold
+    /// Sans-serif Italic
     case sansserifItalic
+    /// Sans-serif Bold Italic
     case sansserifItalicBold
+    /// Serif
     case serif
+    /// Calligraphy
     case calligraphy
+    /// Handwritten
     case handwrittern
+    /// Fraktur
     case fraktur
+    /// Double-struck
     case doublestruck
+    /// Full-width
     case fullwidth
+    /// Bracketed
     case bracketed
+    /// Circle Outlined
     case circleOutlined
+    /// Circle Filled
     case circleFilled
+    /// Square Outlined
     case squareOutlined
+    /// Square Filled
     case squareFilled
+    /// Square Dotted
     case dottedSquareOutlined
+    /// Superscript
     case superscript
+    /// Subscript
     case `subscript`
 
     var font: RichTextFont {
