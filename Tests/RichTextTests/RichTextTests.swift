@@ -1,7 +1,7 @@
 import XCTest
-@testable import swift_rich_text
+@testable import RichText
 
-final class swift_rich_textTests: XCTestCase {
+final class richTextTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest

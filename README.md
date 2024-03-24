@@ -1,2 +1,2 @@
-# swift_rich_text
+# RichText
 英数字に擬似的にフォントをつけてリッチにするSwiftのライブラリ
